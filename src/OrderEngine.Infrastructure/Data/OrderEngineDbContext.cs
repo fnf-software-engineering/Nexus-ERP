@@ -16,7 +16,15 @@ public class OrderEngineDbContext : DbContext
     public DbSet<Products> Products => Set<Products>();
     public DbSet<InventoryMovementType> InventoryMovementTypes => Set<InventoryMovementType>();
     public DbSet<Stock> Stocks => Set<Stock>();
+    public DbSet<StockMovement> StockMovements => Set<StockMovement>();
+    public DbSet<StockMovementItems> StockMovementItems => Set<StockMovementItems>();
     public DbSet<UnitsMeasurement> UnitsMeasurements => Set<UnitsMeasurement>();
+    public DbSet<User> Users => Set<User>();
+    public DbSet<Profiles> Profiles => Set<Profiles>();
+    public DbSet<Permissions> Permissions => Set<Permissions>();
+    public DbSet<PermissionsProfile> PermissionsProfiles => Set<PermissionsProfile>();
+    public DbSet<UserProfiles> UserProfiles => Set<UserProfiles>();
+    public DbSet<CompanyBranchUser> CompanyBranchUsers => Set<CompanyBranchUser>();
     public DbSet<Supplier> Suppliers => Set<Supplier>();
     public DbSet<ThirdBranch> ThirdBranches => Set<ThirdBranch>();
     public DbSet<ThirdParty> ThirdParties => Set<ThirdParty>();

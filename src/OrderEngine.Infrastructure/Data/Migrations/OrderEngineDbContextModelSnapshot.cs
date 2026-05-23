@@ -233,6 +233,29 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.ToTable("erp_empresas", (string)null);
                 });
 
+            modelBuilder.Entity("OrderEngine.Domain.Entities.CompanyBranchUser", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_usuario");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_empresa");
+
+                    b.Property<Guid>("BranchId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_filial");
+
+                    b.HasKey("UserId", "CompanyId", "BranchId");
+
+                    b.HasIndex("BranchId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("seg_usuario_filiais", (string)null);
+                });
+
             modelBuilder.Entity("OrderEngine.Domain.Entities.Customer", b =>
                 {
                     b.Property<Guid>("CustomerId")
@@ -363,6 +386,70 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.HasKey("InventoryMovementTypeId");
 
                     b.ToTable("est_tipos_movimentacao", (string)null);
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.Permissions", b =>
+                {
+                    b.Property<Guid>("IdPermission")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_permissao");
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("acao");
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("ativo");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)")
+                        .HasColumnName("descricao");
+
+                    b.Property<string>("Module")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("modulo");
+
+                    b.Property<string>("Resource")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("recurso");
+
+                    b.HasKey("IdPermission");
+
+                    b.ToTable("seg_permissoes", (string)null);
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.PermissionsProfile", b =>
+                {
+                    b.Property<Guid>("ProfileId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_perfil");
+
+                    b.Property<Guid>("PermissionId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_permissao");
+
+                    b.Property<bool>("Allowed")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("permitido");
+
+                    b.HasKey("ProfileId", "PermissionId");
+
+                    b.HasIndex("PermissionId");
+
+                    b.ToTable("seg_perfil_permissoes", (string)null);
                 });
 
             modelBuilder.Entity("OrderEngine.Domain.Entities.ProductGroup", b =>
@@ -542,6 +629,51 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.HasIndex("UnitMeasurementId");
 
                     b.ToTable("prod_produtos", (string)null);
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.Profiles", b =>
+                {
+                    b.Property<Guid>("ProfileId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_perfil");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_cadastro")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)")
+                        .HasColumnName("descricao");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("ativo");
+
+                    b.Property<bool>("IsAdministrator")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("administrador");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("nome");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_alteracao");
+
+                    b.HasKey("ProfileId");
+
+                    b.ToTable("seg_perfis", (string)null);
                 });
 
             modelBuilder.Entity("OrderEngine.Domain.Entities.Stock", b =>
@@ -996,6 +1128,93 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.ToTable("prod_unidades_medida", (string)null);
                 });
 
+            modelBuilder.Entity("OrderEngine.Domain.Entities.User", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_usuario");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_cadastro")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("email");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("ativo");
+
+                    b.Property<bool>("IsBlocked")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("bloqueado");
+
+                    b.Property<DateTime?>("LastLoginAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_ultimo_login");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("login");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("nome");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)")
+                        .HasColumnName("senha_hash");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_alteracao");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("Email")
+                        .IsUnique()
+                        .HasDatabaseName("ux_usuario_email");
+
+                    b.HasIndex("Login")
+                        .IsUnique()
+                        .HasDatabaseName("ux_usuario_login");
+
+                    b.ToTable("seg_usuarios", (string)null);
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.UserProfiles", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_usuario");
+
+                    b.Property<Guid>("ProfileId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_perfil");
+
+                    b.HasKey("UserId", "ProfileId");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("seg_usuario_perfis", (string)null);
+                });
+
             modelBuilder.Entity("OrderEngine.Domain.Entities.Branch", b =>
                 {
                     b.HasOne("OrderEngine.Domain.Entities.Company", "Company")
@@ -1007,6 +1226,33 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("OrderEngine.Domain.Entities.CompanyBranchUser", b =>
+                {
+                    b.HasOne("OrderEngine.Domain.Entities.Branch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("OrderEngine.Domain.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("OrderEngine.Domain.Entities.User", "User")
+                        .WithMany("CompanyBranches")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("OrderEngine.Domain.Entities.Customer", b =>
                 {
                     b.HasOne("OrderEngine.Domain.Entities.ThirdParty", "ThirdParty")
@@ -1016,6 +1262,21 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("ThirdParty");
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.PermissionsProfile", b =>
+                {
+                    b.HasOne("OrderEngine.Domain.Entities.Permissions", null)
+                        .WithMany()
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("OrderEngine.Domain.Entities.Profiles", null)
+                        .WithMany()
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("OrderEngine.Domain.Entities.Products", b =>
@@ -1140,6 +1401,25 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("OrderEngine.Domain.Entities.UserProfiles", b =>
+                {
+                    b.HasOne("OrderEngine.Domain.Entities.Profiles", "Profile")
+                        .WithMany()
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("OrderEngine.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Profile");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("OrderEngine.Domain.Entities.Branch", b =>
                 {
                     b.Navigation("ThirdParties");
@@ -1159,6 +1439,11 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.Navigation("Customer");
 
                     b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.User", b =>
+                {
+                    b.Navigation("CompanyBranches");
                 });
 #pragma warning restore 612, 618
         }
