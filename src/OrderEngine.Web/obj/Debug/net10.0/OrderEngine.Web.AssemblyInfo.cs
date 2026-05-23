@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrderEngine.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+942dd6367febc74c4e08da735200b918c25975d9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f5f5798b1913344034916263409d7343cbe668f")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrderEngine.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrderEngine.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -314,6 +314,293 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.ToTable("cad_clientes", (string)null);
                 });
 
+            modelBuilder.Entity("OrderEngine.Domain.Entities.InventoryMovementType", b =>
+                {
+                    b.Property<Guid>("InventoryMovementTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_tipo_movimentacao");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)")
+                        .HasColumnName("codigo");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_empresa");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("descricao");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("ativo");
+
+                    b.Property<bool>("MoveInventory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("movimenta_estoque");
+
+                    b.Property<string>("MovementType")
+                        .IsRequired()
+                        .HasColumnType("char(1)")
+                        .HasColumnName("tipo");
+
+                    b.Property<bool>("UpdateCost")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("atualiza_custo");
+
+                    b.HasKey("InventoryMovementTypeId");
+
+                    b.ToTable("est_tipos_movimentacao", (string)null);
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.ProductGroup", b =>
+                {
+                    b.Property<Guid>("ProductGroupId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_grupo");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_empresa");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_cadastro")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("descricao");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("ativo");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_alteracao");
+
+                    b.HasKey("ProductGroupId");
+
+                    b.ToTable("prod_grupos", (string)null);
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.Products", b =>
+                {
+                    b.Property<Guid>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_produto");
+
+                    b.Property<bool>("AllowsPurchase")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("permite_compra");
+
+                    b.Property<bool>("AllowsSale")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("permite_venda");
+
+                    b.Property<decimal>("AverageCost")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("custo_medio");
+
+                    b.Property<string>("Barcode")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("codigo_barras");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)")
+                        .HasColumnName("codigo");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_empresa");
+
+                    b.Property<bool>("ControlsStock")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("controla_estoque");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_cadastro")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<decimal>("CurrentCost")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("custo_atual");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)")
+                        .HasColumnName("descricao");
+
+                    b.Property<decimal?>("GrossWeight")
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasColumnName("peso_bruto");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("ativo");
+
+                    b.Property<decimal>("MaximumStock")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("estoque_maximo");
+
+                    b.Property<decimal>("MinimumStock")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("estoque_minimo");
+
+                    b.Property<decimal?>("NetWeight")
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasColumnName("peso_liquido");
+
+                    b.Property<Guid?>("ProductGroupId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_grupo");
+
+                    b.Property<string>("Reference")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("referencia");
+
+                    b.Property<decimal>("SalePrice")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("preco_venda");
+
+                    b.Property<string>("ShortDescription")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("descricao_reduzida");
+
+                    b.Property<Guid>("UnitMeasurementId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_unidade");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_alteracao");
+
+                    b.HasKey("ProductId");
+
+                    b.HasIndex("Code")
+                        .IsUnique()
+                        .HasDatabaseName("ux_produto_codigo");
+
+                    b.HasIndex("Description")
+                        .HasDatabaseName("ix_produto_descricao");
+
+                    b.HasIndex("ProductGroupId");
+
+                    b.HasIndex("UnitMeasurementId");
+
+                    b.ToTable("prod_produtos", (string)null);
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.Stock", b =>
+                {
+                    b.Property<Guid>("StockId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_estoque");
+
+                    b.Property<decimal>("AverageCost")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("custo_medio");
+
+                    b.Property<Guid>("BranchId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_filial");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_empresa");
+
+                    b.Property<decimal>("CurrentQuantity")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("quantidade_atual");
+
+                    b.Property<DateTime?>("LastMovementDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_ultima_mov");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_produto");
+
+                    b.Property<decimal>("ReservedQuantity")
+                        .ValueGeneratedOnAdd()
+                        .HasPrecision(18, 4)
+                        .HasColumnType("numeric(18,4)")
+                        .HasDefaultValue(0m)
+                        .HasColumnName("quantidade_reservada");
+
+                    b.HasKey("StockId");
+
+                    b.HasIndex("BranchId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("CompanyId", "BranchId", "ProductId")
+                        .IsUnique()
+                        .HasDatabaseName("ux_estoque_empresa_filial_produto");
+
+                    b.ToTable("est_estoques", (string)null);
+                });
+
             modelBuilder.Entity("OrderEngine.Domain.Entities.Supplier", b =>
                 {
                     b.Property<Guid>("SupplierId")
@@ -533,6 +820,56 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                     b.ToTable("cad_terceiros", (string)null);
                 });
 
+            modelBuilder.Entity("OrderEngine.Domain.Entities.UnitsMeasurement", b =>
+                {
+                    b.Property<Guid>("UnitsMeasurementId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_unidade");
+
+                    b.Property<string>("Acronym")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("character varying(10)")
+                        .HasColumnName("sigla");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("id_empresa");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_cadastro")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<int>("DecimalPlaces")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(2)
+                        .HasColumnName("casas_decimais");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("descricao");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(true)
+                        .HasColumnName("ativo");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("data_alteracao");
+
+                    b.HasKey("UnitsMeasurementId");
+
+                    b.ToTable("prod_unidades_medida", (string)null);
+                });
+
             modelBuilder.Entity("OrderEngine.Domain.Entities.Branch", b =>
                 {
                     b.HasOne("OrderEngine.Domain.Entities.Company", "Company")
@@ -553,6 +890,51 @@ namespace OrderEngine.Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("ThirdParty");
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.Products", b =>
+                {
+                    b.HasOne("OrderEngine.Domain.Entities.ProductGroup", "ProductGroup")
+                        .WithMany()
+                        .HasForeignKey("ProductGroupId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("OrderEngine.Domain.Entities.UnitsMeasurement", "UnitMeasurement")
+                        .WithMany()
+                        .HasForeignKey("UnitMeasurementId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ProductGroup");
+
+                    b.Navigation("UnitMeasurement");
+                });
+
+            modelBuilder.Entity("OrderEngine.Domain.Entities.Stock", b =>
+                {
+                    b.HasOne("OrderEngine.Domain.Entities.Branch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("OrderEngine.Domain.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("OrderEngine.Domain.Entities.Products", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Branch");
+
+                    b.Navigation("Company");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("OrderEngine.Domain.Entities.Supplier", b =>

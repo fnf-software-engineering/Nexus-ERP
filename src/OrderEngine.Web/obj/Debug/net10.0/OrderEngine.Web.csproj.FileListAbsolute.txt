@@ -87,3 +87,4 @@
 /home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Web/obj/Debug/net10.0/OrderEngine.Web.pdb
 /home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Web/obj/Debug/net10.0/OrderEngine.Web.genruntimeconfig.cache
 /home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Web/obj/Debug/net10.0/ref/OrderEngine.Web.dll
+/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Web/obj/Debug/net10.0/OrderEngine.Web.sourcelink.json
