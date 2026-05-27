@@ -25,6 +25,9 @@ public class OrderEngineDbContext : DbContext
     public DbSet<PermissionsProfile> PermissionsProfiles => Set<PermissionsProfile>();
     public DbSet<UserProfiles> UserProfiles => Set<UserProfiles>();
     public DbSet<CompanyBranchUser> CompanyBranchUsers => Set<CompanyBranchUser>();
+    public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+    public DbSet<LogDetails> LogDetails => Set<LogDetails>();
+    public DbSet<SystemParameter> SystemParameters => Set<SystemParameter>();
     public DbSet<Supplier> Suppliers => Set<Supplier>();
     public DbSet<ThirdBranch> ThirdBranches => Set<ThirdBranch>();
     public DbSet<ThirdParty> ThirdParties => Set<ThirdParty>();

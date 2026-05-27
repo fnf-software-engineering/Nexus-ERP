@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Krmv5DTF8T0=",
+  "dgSpecHash": "xXB/KlboBw4=",
   "success": true,
   "projectFilePath": "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Web/OrderEngine.Web.csproj",
   "expectedPackageFiles": [
-    "/home/frrx6z/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.7/microsoft.aspnetcore.app.internal.assets.10.0.7.nupkg.sha512"
+    "/home/frrx6z/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.8/microsoft.aspnetcore.app.internal.assets.10.0.8.nupkg.sha512"
   ],
   "logs": []
 }
