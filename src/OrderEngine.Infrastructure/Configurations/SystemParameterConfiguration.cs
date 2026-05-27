@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using OrderEngine.Domain.Entities;
+using OrderEngine.Domain.Enums;
 
 namespace OrderEngine.Infrastructure.Configurations;
 
@@ -38,10 +39,13 @@ public class SystemParameterConfiguration : IEntityTypeConfiguration<SystemParam
             .HasColumnName("descricao")
             .HasMaxLength(250);
 
-        builder.Property(x => x.ParameterType)
+        builder.Property(x => x.Type)
             .HasColumnName("tipo")
             .HasMaxLength(30)
-            .HasDefaultValue("STRING")
+            .HasConversion(
+                value => value.ToString().ToUpperInvariant(),
+                value => Enum.Parse<ParameterType>(value, true))
+            .HasDefaultValue(ParameterType.String)
             .IsRequired();
 
         builder.Property(x => x.CreatedAt)
