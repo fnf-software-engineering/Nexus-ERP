@@ -29,6 +29,7 @@ public class PermissionsConfiguration : IEntityTypeConfiguration<Permissions>
         builder.Property(x => x.Action)
             .HasColumnName("acao")
             .HasMaxLength(50)
+            .HasConversion<string>()
             .IsRequired();
 
         builder.Property(x => x.Description)
