@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Humanizer.Core/2.14.1": {
@@ -2277,39 +2277,39 @@
     ]
   },
   "packageFolders": {
-    "/home/frrx6z/.nuget/packages/": {}
+    "/home/runner/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Api/OrderEngine.Api.csproj",
+      "projectUniqueName": "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Api/OrderEngine.Api.csproj",
       "projectName": "OrderEngine.Api",
-      "projectPath": "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Api/OrderEngine.Api.csproj",
-      "packagesPath": "/home/frrx6z/.nuget/packages/",
-      "outputPath": "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Api/obj/",
+      "projectPath": "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Api/OrderEngine.Api.csproj",
+      "packagesPath": "/home/runner/.nuget/packages/",
+      "outputPath": "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/frrx6z/.nuget/NuGet/NuGet.Config"
+        "/home/runner/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Application/OrderEngine.Application.csproj": {
-              "projectPath": "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Application/OrderEngine.Application.csproj"
+            "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Application/OrderEngine.Application.csproj": {
+              "projectPath": "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Application/OrderEngine.Application.csproj"
             },
-            "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Infrastructure/OrderEngine.Infrastructure.csproj": {
-              "projectPath": "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Infrastructure/OrderEngine.Infrastructure.csproj"
+            "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Infrastructure/OrderEngine.Infrastructure.csproj": {
+              "projectPath": "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Infrastructure/OrderEngine.Infrastructure.csproj"
             },
-            "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Shared/OrderEngine.Shared.csproj": {
-              "projectPath": "/home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Shared/OrderEngine.Shared.csproj"
+            "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Shared/OrderEngine.Shared.csproj": {
+              "projectPath": "/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Shared/OrderEngine.Shared.csproj"
             }
           }
         }
@@ -2324,10 +2324,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": {
@@ -2364,7 +2365,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.108/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.300/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
