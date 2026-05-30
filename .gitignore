@@ -1,0 +1,129 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio cache/options directory
+.vs/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+*.sln.DotSettings.user
+_ReSharper*/
+reSharperCache/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+.nuget/**/*
+
+# Package Management
+packages/
+.packages/
+package-lock.json
+yarn.lock
+
+# Entity Framework Migrations - folder but keep subfolder structure
+# (optional - comment if you want to keep migrations)
+# src/**/Migrations/**/*.Designer.cs - if you want to exclude designer files only
+
+# Test Results
+TestResults/
+*.trx
+*.coverage
+opencover/
+
+# Local user overrides
+appsettings.local.json
+appsettings.*.local.json
+
+# Docker volumes and temporary files
+*.db
+*.db-shm
+*.db-wal
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+*.backup
+*.bak
+
+# dotnet user-secrets
+secrets.json
+
+# Rider specific
+.idea/
+*.sln.iml
+
+# VS Code specific
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Build logs
+*.log
+
+# Coverage
+OpenCover/
+coverage.xml
+coverage.cobertura.xml
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Output folder for publish
+PublishProfiles/
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# Publish Web Output
+PublishScripts/
+*.publish.xml
+*.pubxml
+*.app.publish.xml
+
+# Exclude appsettings production files if tracking in repo
+# appsettings.Production.json
+
+# Exclude any private configuration
+appsettings.Development.json
+
