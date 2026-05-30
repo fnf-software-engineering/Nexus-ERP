@@ -10,3 +10,15 @@
 /home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.pdb
 /home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Domain/obj/Debug/net10.0/ref/OrderEngine.Domain.dll
 /home/frrx6z/Documentos/OrderEngine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.sourcelink.json
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/bin/Debug/net10.0/OrderEngine.Domain.deps.json
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/bin/Debug/net10.0/OrderEngine.Domain.dll
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/bin/Debug/net10.0/OrderEngine.Domain.pdb
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.AssemblyInfoInputs.cache
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.AssemblyInfo.cs
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.csproj.CoreCompileInputs.cache
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.sourcelink.json
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.dll
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/refint/OrderEngine.Domain.dll
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/OrderEngine.Domain.pdb
+/tmp/workspace/fnf-software-engineering/order-engine/src/OrderEngine.Domain/obj/Debug/net10.0/ref/OrderEngine.Domain.dll
